@@ -39,6 +39,40 @@ rabbak.prototype.height = function() {
     return this.target.offsetHeight;
   }
 }
+// OBJECT INNER WIDTH
+rabbak.prototype.innerWidth = function() {
+  if (typeOf(this.target) === "htmlcollection") {
+    var widths = [];
+    for (i = 0; i < this.target.length; i++) {
+      widths.push(this.target[i].clientWidth);
+    }
+    return widths;
+  } else {
+    return this.target.clientWidth;
+  }
+}
+// OBJECT INNER HEIGHT
+rabbak.prototype.innerHeight = function() {
+  if (typeOf(this.target) === "htmlcollection") {
+    var heights = [];
+    for (i = 0; i < this.target.length; i++) {
+      heights.push(this.target[i].clientHeight);
+    }
+    return heights;
+  } else {
+    return this.target.offsetHeight;
+  }
+}
+// ADD CLASS
+rabbak.prototype.addClass = function(className) {
+  if (typeOf(this.target) === "htmlcollection") {
+    for (i = 0; i < this.target.length; i++) {
+      this.target[i].classList.add(className)
+    }
+    return;
+  }
+  this.target.classList.add(className);
+}
 
 // ALAKAZAM
 var $ = new rabbak(".circle");
