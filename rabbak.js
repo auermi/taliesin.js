@@ -15,8 +15,8 @@ function rabbak(selector) {
 }
 
 ///////// FUNCTIONS /////////
-// OBJECT WIDTH
-rabbak.prototype.width = function() {
+// OBJECT INNER WIDTH
+rabbak.prototype.innerWidth = function() {
   if (typeOf(this.target) === "htmlcollection") {
     var widths = [];
     for (i = 0; i < this.target.length; i++) {
@@ -27,8 +27,8 @@ rabbak.prototype.width = function() {
     return this.target.offsetWidth;
   }
 }
-// OBJECT HEIGHT
-rabbak.prototype.height = function() {
+// OBJECT INNER HEIGHT
+rabbak.prototype.innerHeight = function() {
   if (typeOf(this.target) === "htmlcollection") {
     var heights = [];
     for (i = 0; i < this.target.length; i++) {
@@ -39,28 +39,30 @@ rabbak.prototype.height = function() {
     return this.target.offsetHeight;
   }
 }
-// OBJECT INNER WIDTH
-rabbak.prototype.innerWidth = function() {
+// OBJECT WIDTH
+rabbak.prototype.width = function() {
+  var elementHorizontalPadding = parseFloat(window.getComputedStyle(this.target, null).getPropertyValue('padding-left')) + parseFloat(window.getComputedStyle(this.target, null).getPropertyValue('padding-right'));
   if (typeOf(this.target) === "htmlcollection") {
     var widths = [];
     for (i = 0; i < this.target.length; i++) {
-      widths.push(this.target[i].clientWidth);
+      widths.push(this.target[i].getBoundingClientRect().width - elementHorizontalPadding);
     }
     return widths;
   } else {
-    return this.target.clientWidth;
+    return this.target.getBoundingClientRect().width - elementHorizontalPadding;
   }
 }
-// OBJECT INNER HEIGHT
-rabbak.prototype.innerHeight = function() {
+// OBJECT HEIGHT
+rabbak.prototype.height = function() {
+  var elementVerticalPadding = parseFloat(window.getComputedStyle(this.target, null).getPropertyValue('padding-top')) + parseFloat(window.getComputedStyle(this.target, null).getPropertyValue('padding-bottom'));
   if (typeOf(this.target) === "htmlcollection") {
     var heights = [];
     for (i = 0; i < this.target.length; i++) {
-      heights.push(this.target[i].clientHeight);
+      heights.push(this.target[i].getBoundingClientRect().height - elementVerticalPadding);
     }
     return heights;
   } else {
-    return this.target.offsetHeight;
+    return this.target.getBoundingClientRect().height - elementVerticalPadding;
   }
 }
 // ADD CLASS
@@ -75,4 +77,4 @@ rabbak.prototype.addClass = function(className) {
 }
 
 // ALAKAZAM
-var $ = new rabbak(".circle");
+var $ = new rabbak("#box");
