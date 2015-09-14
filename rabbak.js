@@ -1,25 +1,24 @@
 // GENIUS -> https://javascriptweblog.wordpress.com/2011/08/08/fixing-the-javascript-typeof-operator/
-var typeOf = function(obj) {
+var typeOf = function (obj) {
   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 }
-
 // SET-UP
-function rabbak(selector) {
-  if (selector.charAt(0) === "#") {
+function rabbak (selector) {
+  if (selector.charAt(0) === '#') {
     selector = selector.slice(1, selector.length);
     this.target = document.getElementById(selector);
-  } else if (selector.charAt(0) === ".") {
+  } else if (selector.charAt(0) === '.') {
     selector = selector.slice(1, selector.length);
     this.target = document.getElementsByClassName(selector);
   }
 }
 
-///////// FUNCTIONS /////////
+// FUNCTIONS
 // OBJECT OUTER WIDTH
 rabbak.prototype.outerWidth = function(includeMargin) {
-  if (typeOf(this.target) === "htmlcollection") {
+  if (typeOf(this.target) === 'htmlcollection') {
     var widths = [];
-    for (i = 0; i < this.target.length; i++) {
+    for (var i = 0; i < this.target.length; i++) {
       if (includeMargin == null || false) {
         widths.push(this.target[i].getBoundingClientRect().width);
       } else if (includeMargin) {
@@ -38,10 +37,10 @@ rabbak.prototype.outerWidth = function(includeMargin) {
   }
 }
 // OBJECT OUTER HEIGHT
-rabbak.prototype.outerHeight = function(includeMargin) {
-  if (typeOf(this.target) === "htmlcollection") {
+rabbak.prototype.outerHeight = function (includeMargin) {
+  if (typeOf(this.target) === 'htmlcollection') {
     var heights = [];
-    for (i = 0; i < this.target.length; i++) {
+    for (var i = 0; i < this.target.length; i++) {
       if (includeMargin == null || false) {
         heights.push(this.target[i].getBoundingClientRect().height);
       } else if (includeMargin) {
@@ -61,9 +60,9 @@ rabbak.prototype.outerHeight = function(includeMargin) {
 }
 // OBJECT INNER WIDTH
 rabbak.prototype.innerWidth = function() {
-  if (typeOf(this.target) === "htmlcollection") {
+  if (typeOf(this.target) === 'htmlcollection') {
     var widths = [];
-    for (i = 0; i < this.target.length; i++) {
+    for (var i = 0; i < this.target.length; i++) {
       var elementHorizontalBorder = parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-left')) + parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-right'));
       widths.push(this.target[i].getBoundingClientRect().width - elementHorizontalBorder);
     }
@@ -75,9 +74,9 @@ rabbak.prototype.innerWidth = function() {
 }
 // OBJECT INNER HEIGHT
 rabbak.prototype.innerHeight = function() {
-  if (typeOf(this.target) === "htmlcollection") {
+  if (typeOf(this.target) === 'htmlcollection') {
     var heights = [];
-    for (i = 0; i < this.target.length; i++) {
+    for (var i = 0; i < this.target.length; i++) {
       var elementVerticalBorder = parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-top')) + parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-bottom'));
       heights.push(this.target[i].getBoundingClientRect().height - elementVerticalBorder);
     }
@@ -89,9 +88,9 @@ rabbak.prototype.innerHeight = function() {
 }
 // OBJECT WIDTH
 rabbak.prototype.width = function() {
-  if (typeOf(this.target) === "htmlcollection") {
+  if (typeOf(this.target) === 'htmlcollection') {
     var widths = [];
-    for (i = 0; i < this.target.length; i++) {
+    for (var i = 0; i < this.target.length; i++) {
       var elementHorizontalPadding = parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('padding-left')) + parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('padding-right'));
       var elementHorizontalBorder = parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-left')) + parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-right'));
       widths.push(this.target[i].getBoundingClientRect().width - elementHorizontalPadding - elementHorizontalBorder);
@@ -105,9 +104,9 @@ rabbak.prototype.width = function() {
 }
 // OBJECT HEIGHT
 rabbak.prototype.height = function() {
-  if (typeOf(this.target) === "htmlcollection") {
+  if (typeOf(this.target) === 'htmlcollection') {
     var heights = [];
-    for (i = 0; i < this.target.length; i++) {
+    for (var i = 0; i < this.target.length; i++) {
       var elementVerticalPadding = parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('padding-top')) + parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('padding-bottom'));
       var elementVerticalBorder = parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-top')) + parseFloat(window.getComputedStyle(this.target[i], null).getPropertyValue('border-bottom'));
       heights.push(this.target[i].getBoundingClientRect().height - elementVerticalPadding - elementVerticalBorder);
@@ -120,9 +119,9 @@ rabbak.prototype.height = function() {
   }
 }
 // ADD CLASS
-rabbak.prototype.addClass = function(className) {
-  if (typeOf(this.target) === "htmlcollection") {
-    for (i = 0; i < this.target.length; i++) {
+rabbak.prototype.addClass = function (className) {
+  if (typeOf(this.target) === 'htmlcollection') {
+    for (var i = 0; i < this.target.length; i++) {
       this.target[i].classList.add(className)
     }
     return;
