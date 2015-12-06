@@ -45,6 +45,12 @@
     removeClass: function(className) {
       return this.selector[0].classList.remove(className);
     },
+    toggleClass: function(className) {
+      for (var i = 0; i < this.selector.length; i++) {
+        this.selector[i].classList.toggle(className);
+      }
+      return;
+    },
     html: function(content) {
       if (!content) {
         return this.selector[0].innerHTML;
