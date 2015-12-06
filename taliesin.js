@@ -42,6 +42,16 @@
     addClass: function(className) {
       return this.selector[0].classList.add(className);
     },
+    html: function(content) {
+      if (!content) {
+        return this.selector[0].innerHTML;
+      } else {
+        for (var i = 0; i < this.selector.length; i++) {
+          this.selector[i].innerHTML = content;
+        }
+        return;
+      }
+    }
   };
 
   /**
