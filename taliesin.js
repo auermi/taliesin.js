@@ -42,6 +42,9 @@
     addClass: function(className) {
       return this.selector[0].classList.add(className);
     },
+    removeClass: function(className) {
+      return this.selector[0].classList.remove(className);
+    },
     html: function(content) {
       if (!content) {
         return this.selector[0].innerHTML;
