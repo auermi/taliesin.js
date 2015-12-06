@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/auermi/taliesin.js/issues"
   },
-  "homepage": "https://github.com/auermi/taliesin.js#readme"
+  "homepage": "https://github.com/auermi/taliesin.js#readme",
+  "devDependencies": {
+    "grunt-contrib-uglify": "^0.11.0"
+  }
 }
