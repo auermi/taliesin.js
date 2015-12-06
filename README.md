@@ -1,14 +1,15 @@
 # taliesin.js
 ## Overview
-taliesin.js is the result of a reverse engineering of JQuery. This is mostly a personal project, so I will be picky about accepting pull requests.
+taliesin.js is built to take the place of JQuery, sacrificing some backwards compatibility for speed.
 
 ## How to use taliesin.js
 Include script in your project
 
 ```html
-<script type="text/javascript" src="lib/taliesin.js"></script>
+<script type="text/javascript" src="js/vendor/taliesin.js"></script>
 ```
-Call Functions
+
+## Calling taliesin.js methods
 ```javascript
-T('myDiv').addClass('red-box');
+T('#myDiv').addClass('red-box');
 ```
