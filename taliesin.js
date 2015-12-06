@@ -51,6 +51,12 @@
       }
       return;
     },
+    remove: function() {
+      for (var i = 0; i < this.selector.length; i++) {
+        this.selector[i].parentNode.removeChild(this.selector[i]);
+      }
+      return;
+    },
     html: function(content) {
       if (!content) {
         return this.selector[0].innerHTML;
