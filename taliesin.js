@@ -26,7 +26,7 @@
       return this.selector[0].offsetWidth - elementHorizontalBorder
     },
     innerHeight: function() {
-      var elementVerticalBorder = parseFloat(window.getComputedStyle(this.selector[0], null).getPropertyValue('border-top')) + parseFloat(window.getComputedStyle(this.selector[0], null).getPropertyValue('border-bottom'));
+      var elementVerticalBorder = parseFloat(window.getComputedStyle(this.selector[0], null).getPropertyValue('border-top')) + parseFloat(window.getComputedStyle(this.selector[0], null).getPropertyValue('border-bottom'))
       return this.selector[0].offsetHeight - elementVerticalBorder
     },
     width: function() {
@@ -73,7 +73,7 @@
    * the function T.
    */
   var T = function(selector) {
-    return new Taliesin(selector);
+    return new Taliesin(selector)
   }
 
   /**
