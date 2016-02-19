@@ -65,6 +65,19 @@
         }
         return this
       }
+    },
+    text: function(text) {
+      if (text) {
+        for (var i=0; i<this.selector.length; i++) {
+          this.selector[i].innerText = text;
+        }
+      } else {
+        var result;
+        for (var i=0; i<this.selector.length; i++) {
+          result += this.selector[i].innerText + ' '
+        }
+        return result.trim()
+      }
     }
   }
 
